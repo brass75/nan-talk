@@ -45,6 +45,21 @@ attempting to retrieve it; with the new version of `dict` it will work as expect
   - Where to find the talk slides.
   - Where to find me.
 
+## Things I've found:
+
+```python
+>>> float('nan') ** 0
+1.0
+>>> float('nan') > 1
+False
+>>> float('nan') < 1
+False
+>>> float('nan') == 1
+False
+>>> float('nan') != 1
+True
+```
+
 ## Refernces
 
 <https://xkcd.com/851/>
@@ -56,3 +71,5 @@ attempting to retrieve it; with the new version of `dict` it will work as expect
 <https://twit.social/@brass75/116168712645625711>
 
 <https://discuss.python.org/t/question-about-float-nan/106378>
+
+<https://en.wikipedia.org/wiki/NaN>
