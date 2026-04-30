@@ -62,6 +62,8 @@ True
 nan
 ```
 
+In a single precision floating point number (32 bit) there are 2^24 - potential NaN values.
+
 ## Quotes:
 
 NaN is a lot like infinity in that people want to treat it as a number but It's Not and trying to do that will only lead to surprise and disappointment. - Luna Celste
