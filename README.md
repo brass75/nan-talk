@@ -58,6 +58,8 @@ False
 False
 >>> float('nan') != 1
 True
+>>>> float('inf') - float('inf')
+nan
 ```
 
 ## Quotes:
