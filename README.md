@@ -60,6 +60,8 @@ False
 True
 >>>> float('inf') - float('inf')
 nan
+>>>> f'ba{1e234567 - 1e765432}as'
+'bananas'
 ```
 
 In a single precision floating point number (32 bit) there are 2^24 - potential NaN values.
