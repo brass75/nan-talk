@@ -6,6 +6,10 @@ Alternate title: "NaN - More than Not a Number"
 - Live demo a dict that allows use of NaN as a key the way it would be intuitively, so that all NaN values are treated as one.
 - Live demo a Counter that counts how many occurences of NaN exist
 
+## Questions
+
+- What about `copy.copy`?
+
 ## Description
 
 Have you ever wondered about `float('NaN')`? What it is? What you can do with it? What you
