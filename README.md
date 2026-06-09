@@ -68,6 +68,15 @@ nan
 'bananas'
 ```
 
+```py
+import struct
+float_bytes = b"\xaa\xbb\xcc\xdd\xff\xff\xff\xff"
+val = struct.unpack("d", float_bytes)[0]
+print(val)
+print(struct.pack("d", val))
+```
+
+
 In a single precision floating point number (32 bit) there are 2^24 - potential NaN values.
 
 ## Quotes:
