@@ -3,7 +3,7 @@ name = "nandict"
 version = "0.1.0"
 description = "A dictionary and counter package that only allows a single NaN instance key"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.10"
 dependencies = []
 
 [dependency-groups]
