@@ -1,6 +1,6 @@
 from collections.abc import Iterable, Mapping
 from math import isnan, nan
-from typing import overload
+from typing import overload, Any
 
 
 class NaNDict(dict):
@@ -13,7 +13,7 @@ class NaNDict(dict):
     @overload
     def __init__(self, **kwargs): ...
 
-    def __init__(self, init: Mapping | Iterable = None, **kwargs):
+    def __init__(self, init: Mapping | Iterable | None = None, **kwargs):
         super().__init__()
         self.update(init, **kwargs)
 
@@ -45,15 +45,15 @@ class NaNDict(dict):
             key = nan
         return super().pop(key, *args)
 
-    def update(self, mapping: Mapping | Iterable, **kwargs):
+    def update(self, mapping: Mapping | Iterable | None, **kwargs):
         if mapping:
             mapping = mapping.items() if isinstance(mapping, Mapping) else mapping
             for k, v in mapping:
                 self[k] = v
-        for k, v in kwargs.items():
-            self[k] = v
+        if kwargs:
+            self.update(kwargs)
 
-    def __contains__(self, key):
+    def __contains__(self, key: Any):
         if key != key and isnan(key):
             key = nan
         return super().__contains__(key)
