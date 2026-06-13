@@ -1,4 +1,4 @@
-# This is not the NaN you are looking for.
+# This is not the NaN you are looking for
 
 Alternate title: "NaN - More than Not a Number"
 
@@ -49,7 +49,7 @@ attempting to retrieve it; with the new version of `dict` it will work as expect
   - Where to find the talk slides.
   - Where to find me.
 
-## Things I've found:
+## Things I've found
 
 ```python
 >>> float('nan') ** 0
@@ -76,16 +76,15 @@ print(val)
 print(struct.pack("d", val))
 ```
 
-
 In a single precision floating point number (32 bit) there are 2^24 - potential NaN values.
 
-## Quotes:
+## Quotes
 
 NaN is a lot like infinity in that people want to treat it as a number but It's Not and trying to do that will only lead to surprise and disappointment. - Luna Celste
 
 NaN is a wild land governed by laws both alien and arcane - Luna Celeste
 
-## Refernces
+## References
 
 <https://xkcd.com/851/>
 
