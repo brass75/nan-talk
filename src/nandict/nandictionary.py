@@ -1,19 +1,17 @@
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Mapping, MutableMapping
 from math import isnan, nan
-from typing import overload, Any
+from typing import Any, overload
 
 
 class NaNDict(dict):
     """A Python Dictionary that can only accept a single NaN as a key"""
 
     @overload
-    def __init__(self, init: Mapping): ...
-    @overload
-    def __init__(self, init: Iterable): ...
+    def __init__(self, init: MutableMapping): ...
     @overload
     def __init__(self, **kwargs): ...
 
-    def __init__(self, init: Mapping | Iterable | None = None, **kwargs):
+    def __init__(self, init: MutableMapping | None = None, **kwargs):
         super().__init__()
         self.update(init, **kwargs)
 
@@ -45,11 +43,16 @@ class NaNDict(dict):
             key = nan
         return super().pop(key, *args)
 
-    def update(self, mapping: Mapping | Iterable | None, **kwargs):
-        if mapping:
-            mapping = mapping.items() if isinstance(mapping, Mapping) else mapping
-            for k, v in mapping:
-                self[k] = v
+    def update(self, mapping: MutableMapping | Iterable | None, **kwargs):  # type: ignore
+        match mapping:
+            case Mapping():
+                for k, v in mapping.items():
+                    self[k] = v
+            case None:
+                pass
+            case _:
+                for k, v in mapping:
+                    self[k] = v
         if kwargs:
             self.update(kwargs)
 
