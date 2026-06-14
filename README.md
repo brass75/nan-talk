@@ -78,6 +78,16 @@ print(struct.pack("d", val))
 
 In a single precision floating point number (32 bit) there are 2^24 - potential NaN values.
 
+Potential improvements for NaNDict:
+
+- Different types of nans are distinct.
+- Perserve the original supplied nan (maybe you do and check_key() does the coalescing).
+- A dunder hook for hypothetical future other weird ass values with rogue behaviour like nan.
+- An extensive test and performance suite.
+- Accept any kind of object for the membership test.
+- Accepting unhashable values.
+
+
 ## Quotes
 
 NaN is a lot like infinity in that people want to treat it as a number but It's Not and trying to do that will only lead to surprise and disappointment. - Luna Celste
