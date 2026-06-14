@@ -76,7 +76,7 @@ print(val)
 print(struct.pack("d", val))
 ```
 
-In a single precision floating point number (32 bit) there are 2^24 - potential NaN values.
+In a single precision floating point number (32 bit) there are 2^24 - 2 potential NaN values.
 
 Potential improvements for NaNDict:
 
@@ -86,7 +86,6 @@ Potential improvements for NaNDict:
 - An extensive test and performance suite.
 - Accept any kind of object for the membership test.
 - Accepting unhashable values.
-
 
 ## Quotes
 
