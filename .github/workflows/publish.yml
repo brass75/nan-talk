@@ -3,12 +3,14 @@ on:
   release:
     types: [published]
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   test:
     uses: ./.github/workflows/test.yml
+    permissions:
+      contents: read
+
   build:
     needs: test
     runs-on: ubuntu-latest

@@ -1,6 +1,8 @@
 name: Tests
+
 permissions:
   contents: read
+
 on:
   workflow_call:
   workflow_dispatch:
@@ -18,6 +20,7 @@ on:
       - "src/nandict/**"
       - "tests/**"
       - "pyproject.toml"
+
 jobs:
   test-against-python-matrix:
     name: PyTest
@@ -33,6 +36,8 @@ jobs:
           persist-credentials: false
       - name: Install uv
         uses: astral-sh/setup-uv@a9b33f02405f50e505f17ab8530e42a23200a5d1
+        with:
+          enable-cache: true
       - name: Run tests
         run: |
           uv run -p ${{ matrix.python-version }} pytest
