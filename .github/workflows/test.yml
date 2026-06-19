@@ -28,9 +28,11 @@ jobs:
       fail-fast: true
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@a9b33f02405f50e505f17ab8530e42a23200a5d1
       - name: Run tests
         run: |
           uv run -p ${{ matrix.python-version }} pytest
