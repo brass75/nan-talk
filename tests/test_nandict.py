@@ -11,6 +11,7 @@ from nandict import NaNDict
         ({float('nan'): n for n in range(10)}, {}, {nan: 9}),
         (([(float('nan'), 1), (2, 3)]), {}, {nan: 1, 2: 3}),
         (None, {'4': 5}, {'4': 5}),
+        ({float('inf'): 1, float('inf'): 2, **{float('nan'): n for n in range(10)}}, None, {float('inf'): 2, nan: 9}),
     ],
 )
 def test_single_nan(init, kwargs, expected):

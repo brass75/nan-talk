@@ -1,5 +1,5 @@
 from collections.abc import Iterable, Mapping, MutableMapping
-from math import isnan, nan
+from math import nan
 from typing import Any, overload
 
 
@@ -16,17 +16,15 @@ class NaNDict(dict):
         self.update(init, **kwargs)
 
     def __setitem__(self, key, value):
-        if key != key and isnan(key):
-            key = nan
+        key = nan if key != key else key
         super().__setitem__(key, value)
 
     def __getitem__(self, key):
-        if key != key and isnan(key):
-            key = nan
+        key = nan if key != key else key
         return super().__getitem__(key)
 
     def get(self, __key, default=None, /):
-        if __key != __key and isnan(__key):
+        if __key != __key:
             __key = nan
         try:
             return self[__key]
@@ -34,13 +32,11 @@ class NaNDict(dict):
             return default
 
     def setdefault(self, key, default=None, /):
-        if key != key and isnan(key):
-            key = nan
+        key = nan if key != key else key
         super().setdefault(key, default)
 
     def pop(self, key, *args):
-        if key != key and isnan(key):
-            key = nan
+        key = nan if key != key else key
         return super().pop(key, *args)
 
     def update(self, mapping: MutableMapping | Iterable | None, **kwargs):  # type: ignore
@@ -57,6 +53,5 @@ class NaNDict(dict):
             self.update(kwargs)
 
     def __contains__(self, key: Any):
-        if key != key and isnan(key):
-            key = nan
+        key = nan if key != key else key
         return super().__contains__(key)
