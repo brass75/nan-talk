@@ -89,6 +89,7 @@ Potential improvements for NaNDict:
 
 `json` parsing in Python doesn't handle NaN properly.
 [pydis](https://discord.com/channels/267624335836053506/267624335836053506/1517687138274119741)
+
 JSON does not represent IEEE-754 floats. It does not permit NaN and infinity as part of the "number" type
 
 ## Quotes
