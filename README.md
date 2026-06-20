@@ -87,6 +87,10 @@ Potential improvements for NaNDict:
 - Accept any kind of object for the membership test.
 - Accepting unhashable values.
 
+`json` parsing in Python doesn't handle NaN properly.
+[pydis](https://discord.com/channels/267624335836053506/267624335836053506/1517687138274119741)
+
+
 ## Quotes
 
 NaN is a lot like infinity in that people want to treat it as a number but It's Not and trying to do that will only lead to surprise and disappointment. - Luna Celste
