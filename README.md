@@ -94,7 +94,10 @@ JSON does not represent IEEE-754 floats. It does not permit `NaN` and infinity a
 
 [YAML](https://yaml.org/spec/1.2.2/#24-tags) does support `NaN`
 
-Signed `NaN` and things with `NaN` that don't return `NaN` [Jeff Epler](https://social.afront.org/@stylus/116785672165287935)
+Signed `NaN` and things with `NaN` that don't return `NaN` [Jeff Epler]
+[post](https://social.afront.org/@stylus/116785672165287935)
+
+From [Jeff Epler] - [NaN Cipher](https://codeberg.org/jepler/junkdrawer/src/branch/main/na869m0v/nancode.py)
 
 ## Quotes
 
@@ -116,3 +119,5 @@ NaN is a wild land governed by laws both alien and arcane - Luna Celeste
 <https://discuss.python.org/t/question-about-float-nan/106378>
 
 <https://en.wikipedia.org/wiki/NaN>
+
+[Jeff Epler]: https://social.afront.org/@stylus#.
