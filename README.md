@@ -94,9 +94,12 @@ JSON does not represent IEEE-754 floats. It does not permit `NaN` and infinity a
 
 [YAML](https://yaml.org/spec/1.2.2/#24-tags) does support `NaN`
 
+Signed `NaN` and things with `NaN` that don't return `NaN` [Jeff Epler](https://social.afront.org/@stylus/116785672165287935)
+
 ## Quotes
 
-NaN is a lot like infinity in that people want to treat it as a number but It's Not and trying to do that will only lead to surprise and disappointment. - Luna Celste
+NaN is a lot like infinity in that people want to treat it as a number but It's Not and trying to do that will only lead
+to surprise and disappointment. - Luna Celste
 
 NaN is a wild land governed by laws both alien and arcane - Luna Celeste
 
