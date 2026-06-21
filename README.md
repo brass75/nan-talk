@@ -99,6 +99,9 @@ Signed `NaN` and things with `NaN` that don't return `NaN` [Jeff Epler]
 
 From [Jeff Epler] - [NaN Cipher](https://codeberg.org/jepler/junkdrawer/src/branch/main/na869m0v/nancode.py)
 
+`[math.nan] == [math.nan]` is `True`. 
+[Identity check on the objects before equality check](https://github.com/python/cpython/blob/c63aec69bd59c55314c06c23f4c22c03de76fe45/Objects/listobject.c#L3416-L3422)
+
 ## Quotes
 
 NaN is a lot like infinity in that people want to treat it as a number but It's Not and trying to do that will only lead
