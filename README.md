@@ -102,7 +102,7 @@ From [Jeff Epler] - [NaN Cipher](https://codeberg.org/jepler/junkdrawer/src/bran
 ## Quotes
 
 NaN is a lot like infinity in that people want to treat it as a number but It's Not and trying to do that will only lead
-to surprise and disappointment. - Luna Celste
+to surprise and disappointment. - Luna Celeste
 
 NaN is a wild land governed by laws both alien and arcane - Luna Celeste
 
