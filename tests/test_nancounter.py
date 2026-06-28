@@ -1,3 +1,8 @@
+from collections import Counter
+
+from conftest import TEST_STRING
+
+from nancipher import NaNCipher, nan_with_payload
 from nandict import NaNCounter
 
 
@@ -9,3 +14,12 @@ def test_nancounter():
     nc = NaNCounter(d)
     assert len(nc) == 11
     assert nc[float('nan')] == 10
+
+
+def test_nancounter_multiple_nans():
+    """Test that NaNCounter works properly with differently valued NaNs"""
+    counter = NaNCounter(NaNCipher(TEST_STRING))
+    text_counter = Counter(TEST_STRING)
+    for c in TEST_STRING:
+        encoded = nan_with_payload(c)
+        assert counter.get(encoded) == text_counter[c]
