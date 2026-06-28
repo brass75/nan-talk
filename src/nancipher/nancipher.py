@@ -32,10 +32,10 @@ class NaNCipher:
         :param nan_payload: The NaN object with the payload
         :return: The payload from the NaN object
         """
-        return chr(cls._as_int(nan_payload) & ~MIN_NAN)
+        return chr(cls.as_int(nan_payload) & ~MIN_NAN)
 
     @classmethod
-    def _as_int(cls, nan_value: float) -> int:
+    def as_int(cls, nan_value: float) -> int:
         """
         Convert a NaN into an int for comparison
 
@@ -71,6 +71,6 @@ class NaNCipher:
             case cls():
                 if len(other) != len(self):  # type: ignore
                     return False
-                return all(self._as_int(o) == other._as_int(s) for o, s in zip(self, other))  # type: ignore
+                return all(self.as_int(o) == other.as_int(s) for o, s in zip(self, other))  # type: ignore
             case _:
                 return False
