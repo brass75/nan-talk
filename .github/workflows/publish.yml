@@ -21,7 +21,7 @@ jobs:
           enable-cache: false
       - name: Run tests
         run: |
-          uv run -p 3.10 pytest
+          uv run -p 3.12 pytest
 
   build:
     needs: test
