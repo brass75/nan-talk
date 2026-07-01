@@ -3,7 +3,7 @@ from math import isnan
 import pytest
 from conftest import TEST_STRING
 
-from nancipher import NaNCipher
+from nandict import NaNCipher
 
 
 def test_nancipher():

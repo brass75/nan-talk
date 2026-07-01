@@ -1,18 +1,18 @@
 [project]
 name = "nandict"
-version = "0.1.0"
+version = "2026.6.4.dev0"
 description = "A dictionary and counter package that only allows a single NaN instance key"
 readme = "README.md"
 requires-python = ">=3.12"
 
 [dependency-groups]
 dev = [
-    "coverage==7.13.5",
-    "pytest==9.0.3",
-    "ruff==0.15.12",
-    "prek==0.3.11",
-    "deptry==0.24.0",
-    "ty==0.0.40",
+  "coverage==7.13.5",
+  "pytest==9.0.3",
+  "ruff==0.15.12",
+  "prek==0.3.11",
+  "deptry==0.24.0",
+  "ty==0.0.40",
 ]
 
 [tool.ruff]
@@ -20,22 +20,20 @@ target-version = "py310"
 # Allow lines to be as long as 120 characters.
 line-length = 120
 lint.select = [
-  "E",   # pycodestyle
-  "F",   # pyflakes
-  "UP",  # pyupgrade
-  "I",   # imports
+  "E",  # pycodestyle
+  "F",  # pyflakes
+  "UP", # pyupgrade
+  "I",  # imports
 ]
 
 
-lint.ignore = [
-]
+lint.ignore = []
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
 lint.fixable = ["ALL"]
 lint.unfixable = []
 
-exclude = [
-]
+exclude = []
 
 [tool.ruff.format]
 quote-style = "single"
