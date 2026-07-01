@@ -2,7 +2,7 @@ from collections.abc import Iterable, Mapping, MutableMapping
 from math import nan
 from typing import Any, overload
 
-from nancipher import as_int
+from .nancipher import as_int
 
 
 class NaNDict(dict):

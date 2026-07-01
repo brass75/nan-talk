@@ -2,8 +2,7 @@ from collections import Counter
 
 from conftest import TEST_STRING
 
-from nancipher import NaNCipher, nan_with_payload
-from nandict import NaNCounter
+from nandict import NaNCipher, NaNCounter, nan_with_payload
 
 
 def test_nancounter():
