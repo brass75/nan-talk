@@ -3,7 +3,7 @@ from math import isnan
 import pytest
 from conftest import TEST_STRING
 
-from nandict import NaNCipher
+from nandict import NaNCipher, payload_from_nan
 
 
 def test_nancipher():
@@ -31,3 +31,12 @@ def test_equality(value, response):
 def test_repr():
     """Test the repr"""
     assert repr(NaNCipher(TEST_STRING)) == f'[{", ".join("nan" for _ in range(len(TEST_STRING)))}]'
+
+
+def test_index_access():
+    """Test access by index works as expected"""
+    encoded = NaNCipher(TEST_STRING)
+    for i, c in enumerate(TEST_STRING):
+        assert c == payload_from_nan(encoded[i])
+    with pytest.raises(IndexError):
+        encoded[len(TEST_STRING)]
