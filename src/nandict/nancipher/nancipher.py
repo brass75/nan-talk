@@ -74,3 +74,11 @@ class NaNCipher:
                 return all(self.as_int(o) == other.as_int(s) for o, s in zip(self, other))  # type: ignore
             case _:
                 return False
+
+    def __getitem__(self, idx) -> float:
+        """Index access for retrieving encoded character"""
+        if idx >= len(self):
+            raise IndexError(
+                f'Error: Index {idx} is out of range. The encoded string is only {len(self)} characters long.'
+            )
+        return self._encoded[idx]
