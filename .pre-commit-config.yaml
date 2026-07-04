@@ -1,23 +1,29 @@
 repos:
-- repo: https://github.com/astral-sh/ruff-pre-commit
-  # Ruff version.
-  rev: v0.15.1
-  hooks:
-    # Run the linter.
-    - id: ruff-check
-      args: [ --fix ]
-    # Run the formatter.
-    - id: ruff-format
-- repo: local
-  hooks:
-    - id: ty-check
-      name: ty
-      entry: uv run ty check src
-      language: system
-      types: [python]
-      pass_filenames: false
-- repo: https://github.com/DavidAnson/markdownlint-cli2
-  rev: v0.6.0
-  hooks:
-    - id: markdownlint-cli2
-      args: [ "*.md", "docs/**/*.md" ]
+  - repo: local
+    hooks:
+      # Run the linter.
+      - id: ruff-check
+        name: ruff lint
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
+        pass_filenames: true
+      - id: ruff-format
+        name: ruff format
+        entry: ruff format
+        language: system
+        types: [python]
+        pass_filenames: true
+  - repo: local
+    hooks:
+      - id: ty-check
+        name: ty
+        entry: uv run ty check src
+        language: system
+        types: [python]
+        pass_filenames: false
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.6.0
+    hooks:
+      - id: markdownlint-cli2
+        args: ["*.md", "docs/**/*.md"]
