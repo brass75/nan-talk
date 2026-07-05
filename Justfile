@@ -15,3 +15,7 @@ _default:
   ruff check . --fix || true
   ruff format .
   ruff check .
+
+# Start the REPL with the modules available
+@repl:
+  uv run --with . python
