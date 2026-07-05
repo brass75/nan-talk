@@ -1,4 +1,4 @@
-from collections.abc import Iterable, Mapping, MutableMapping
+from collections.abc import Hashable, Iterable, Mapping, MutableMapping
 from math import nan
 from typing import Any, overload
 
@@ -19,37 +19,39 @@ class NaNDict(dict):
         super().__init__()
         self.update(init, **kwargs)
 
-    def _get_key_mapping(self, key: float) -> float:
-        """Get the mapping for a specific NaNKey"""
-        if key == key:
-            return key
-        key_as_int = as_int(key)
-        if key_as_int not in self._mappings:
-            self._mappings[key_as_int] = key
-        return self._mappings[key_as_int]
+    def _get_key_mapping(self, key: Any) -> Hashable:
+        """
+        Get the mapping for a specific NaNKey
 
-    def __setitem__(self, key, value):
-        key = self._get_key_mapping(key)
-        super().__setitem__(key, value)
+        :param key: The key to get the mapping for
+        :return: The key to use
+        :raises: ValueError if the key is not Hashable.
+        """
+        match key:
+            case float():
+                return self._mappings.setdefault(as_int(key), key) if key != key else key
+            case _:
+                if not isinstance(key, Hashable):
+                    raise ValueError(f'Provided key is not Hashable. {repr(key)}')
+                return key
 
-    def __getitem__(self, key):
-        key = self._get_key_mapping(key)
-        return super().__getitem__(key)
+    def __setitem__(self, key: Hashable, value: Any) -> None:
+        super().__setitem__(self._get_key_mapping(key), value)
 
-    def get(self, __key, default=None, /):
-        __key = self._get_key_mapping(__key)
+    def __getitem__(self, key: Hashable):
+        return super().__getitem__(self._get_key_mapping(key))
+
+    def get(self, __key: Hashable, default: Any = None, /):
         try:
-            return self[__key]
+            return self[self._get_key_mapping(__key)]
         except KeyError:
             return default
 
-    def setdefault(self, key, default=None, /):
-        key = self._get_key_mapping(key)
-        super().setdefault(key, default)
+    def setdefault(self, key: Hashable, default: Any = None, /):
+        super().setdefault(self._get_key_mapping(key), default)
 
-    def pop(self, key, *args):
-        key = self._get_key_mapping(key)
-        return super().pop(key, *args)
+    def pop(self, key: Hashable, *args):
+        return super().pop(self._get_key_mapping(key), *args)
 
     def update(self, mapping: MutableMapping | Iterable | None, **kwargs):  # type: ignore
         match mapping:
@@ -64,6 +66,5 @@ class NaNDict(dict):
         if kwargs:
             self.update(kwargs)
 
-    def __contains__(self, key: Any):
-        key = self._get_key_mapping(key)
-        return super().__contains__(key)
+    def __contains__(self, key: Hashable):
+        return super().__contains__(self._get_key_mapping(key))

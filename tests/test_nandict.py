@@ -49,3 +49,9 @@ def test_setdefault():
 def test_pop():
     d = NaNDict({float('nan'): 2})
     assert d.pop(float('nan')) == 2
+
+
+def test_invalid_key_type():
+    d = NaNDict()
+    with pytest.raises(ValueError):
+        d[[1, 2, 3]] = 4
