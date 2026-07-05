@@ -47,8 +47,8 @@ class NaNDict(dict):
         except KeyError:
             return default
 
-    def setdefault(self, key: Hashable, default: Any = None, /):
-        super().setdefault(self._get_key_mapping(key), default)
+    def setdefault(self, key: Hashable, default: Any = None, /) -> Any:
+        return super().setdefault(self._get_key_mapping(key), default)
 
     def pop(self, key: Hashable, *args):
         return super().pop(self._get_key_mapping(key), *args)
@@ -66,5 +66,5 @@ class NaNDict(dict):
         if kwargs:
             self.update(kwargs)
 
-    def __contains__(self, key: Hashable):
+    def __contains__(self, key: Hashable) -> bool:
         return super().__contains__(self._get_key_mapping(key))
