@@ -35,6 +35,9 @@ lint.unfixable = []
 
 exclude = []
 
+[tool.ruff.lint.per-file-ignores]
+"startup.py" = ["F401"]
+
 [tool.ruff.format]
 quote-style = "single"
 indent-style = "space"
