@@ -18,4 +18,4 @@ _default:
 
 # Start the REPL with the modules available
 @repl:
-  uv run --with . python
+  PYTHONSTARTUP=startup.py uv run --with . python
