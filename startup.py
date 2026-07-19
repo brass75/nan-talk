@@ -9,6 +9,8 @@ from nandict import NaNCipher, NaNCounter, NaNDict, as_int, nan_with_payload, pa
 
 zen: list[str] = Path('zen.txt').read_text().splitlines()
 
+bruce_wayne: NaNCipher = NaNCipher(Path('batman.txt').read_text())
+
 
 def choice(*args, **kwargs) -> str:
     return """Never gonna give you up
