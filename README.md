@@ -101,6 +101,7 @@ From [Jeff Epler] - [NaN Cipher](https://codeberg.org/jepler/junkdrawer/src/bran
 
 `[math.nan] == [math.nan]` is `True`.
 [Identity check on the objects before equality check](https://github.com/python/cpython/blob/c63aec69bd59c55314c06c23f4c22c03de76fe45/Objects/listobject.c#L3416-L3422)
+[Issue raised on Python 3.0 about this behaviour](https://bugs.python.org/issue4296)
 
 Prior to [Python 3.11](https://docs.python.org/3/whatsnew/3.11.html#build-changes) CPython did not require IEEE-754
 support and included a `Py_NO_NAN` macro. Current versions of CPython require IEEE-754 support and the macro was removed.
