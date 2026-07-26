@@ -2,6 +2,8 @@ from math import isnan
 
 import pytest
 from conftest import TEST_STRING
+from hypothesis import given
+from hypothesis import strategies as st
 
 from nandict import NaNCipher, payload_from_nan
 
@@ -40,3 +42,11 @@ def test_index_access():
         assert c == payload_from_nan(encoded[i])
     with pytest.raises(IndexError):
         encoded[len(TEST_STRING)]
+
+
+@given(text=st.text() | st.characters())
+def test_roundtrip(text):
+    encoded = NaNCipher(text)
+    assert all(isnan(n) for n in encoded)
+    decoded = str(encoded)
+    assert decoded == text
