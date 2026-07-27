@@ -22,3 +22,8 @@ def test_nancounter_multiple_nans():
     for c in TEST_STRING:
         encoded = nan_with_payload(c)
         assert counter.get(encoded) == text_counter[c]
+
+
+def test_missing_value():
+    """Test that missing value return 0"""
+    assert NaNCounter(range(5))[5] == 0
